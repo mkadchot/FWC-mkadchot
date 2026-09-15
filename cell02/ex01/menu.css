@@ -1,0 +1,67 @@
+/* ตั้งค่าพื้นฐาน */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* แถบ Navbar หลัก */
+.navbar {
+  background-color: #1b365d;
+  border-radius: 5px;
+}
+
+.main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-menu > li {
+  position: relative;
+}
+
+.main-menu a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-menu a:hover {
+  background-color: #0056b3;
+}
+
+/* ซ่อน Dropdown Menu ไว้ก่อน */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.dropdown-menu li a {
+  color: #333;
+  padding: 12px 16px;
+  font-weight: normal;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f1f1f1;
+  color: #0056b3;
+}
+
+/* แสดง Dropdown Menu เมื่อนำเมาส์ไปชี้ (Hover) */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
