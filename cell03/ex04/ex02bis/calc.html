@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Over 9000!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .calc-card {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 24rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .calc-title {
+            font-size: 1.75rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+        }
+
+        .calc-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .calc-input,
+        .calc-select {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .calc-input:focus,
+        .calc-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #6366f1;
+            border-color: #6366f1;
+        }
+
+        .calc-btn {
+            background-color: #4f46e5;
+            color: #ffffff;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .calc-btn:hover {
+            background-color: #4338ca;
+        }
+
+        /* Custom Modal Styling */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            position: relative;
+        }
+
+        .modal-message {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .modal-close-btn {
+            background-color: #dc3d32;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .modal-close-btn:hover {
+            background-color: #a2e3df;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calc-card">
+        <h1 class="calc-title">Simple Calculator</h1>
+
+        <div class="calc-form">
+            <!-- Left member input -->
+            <input
+                type="text"
+                id="leftOperand"
+                placeholder="Enter first number (>= 0)"
+                class="calc-input"
+            />
+
+            <!-- Operator selection -->
+            <select id="operator" class="calc-select">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+
+            <!-- Right member input -->
+            <input
+                type="text"
+                id="rightOperand"
+                placeholder="Enter second number (>= 0)"
+                class="calc-input"
+            />
+
+            <!-- Submit button -->
+            <button id="calculateBtn" class="calc-btn">
+                Try me!
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Modal for Messages -->
+    <div id="customModalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <p id="modalMessage" class="modal-message"></p>
+            <button id="modalCloseBtn" class="modal-close-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        // Get references to HTML elements (jQuery objects)
+        const $leftOperand = $('#leftOperand');
+        const $rightOperand = $('#rightOperand');
+        const $operator = $('#operator');
+        const $calculateBtn = $('#calculateBtn');
+        const $customModalOverlay = $('#customModalOverlay');
+        const $modalMessage = $('#modalMessage');
+        const $modalCloseBtn = $('#modalCloseBtn');
+
+        /**
+         * Displays a message in a custom modal instead of using alert().
+         * @param {string} message - The message to display.
+         */
+        function showCustomModal(message) {
+            $modalMessage.text(message);
+            $customModalOverlay.css('display', 'flex'); // Show the modal
+        }
+
+        // Event listener for the modal close button
+        $modalCloseBtn.on('click', () => {
+            $customModalOverlay.css('display', 'none'); // Hide the modal
+        });
+
+        /**
+         * Validates if a given value is a non-negative integer.
+         * @param {string} value - The string value to validate.
+         * @returns {boolean} - True if valid, false otherwise.
+         */
+        function isValidInteger(value) {
+            const num = Number(value);
+            return !isNaN(num) && Number.isInteger(num) && num >= 0;
+        }
+
+        // Event listener for the 'Try me!' button
+        $calculateBtn.on('click', () => {
+            const leftVal = $leftOperand.val();
+            const rightVal = $rightOperand.val();
+            const operator = $operator.val();
+
+            // Input validation
+            if (!isValidInteger(leftVal) || !isValidInteger(rightVal)) {
+                showCustomModal('Error :(');
+                console.error('Error: Inputs must be positive integer values (>= 0).');
+                return;
+            }
+
+            const num1 = parseInt(leftVal);
+            const num2 = parseInt(rightVal);
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        showCustomModal("It’s over 9000!");
+                        console.error("It’s over 9000! Division by zero is not allowed.");
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                case '%':
+                    if (num2 === 0) {
+                        showCustomModal("It’s over 9000!");
+                        console.error("It’s over 9000! Modulo by zero is not allowed.");
+                        return;
+                    }
+                    result = num1 % num2;
+                    break;
+                default:
+                    showCustomModal('Error: Invalid operator.');
+                    console.error('Error: Invalid operator selected.');
+                    return;
+            }
+
+            showCustomModal(`Result: ${result}`);
+            console.log(`Calculation: ${num1} ${operator} ${num2} = ${result}`);
+        });
+
+        // Set up interval for periodic message
+        setInterval(() => {
+            showCustomModal('Please, use me...');
+            console.log('Periodic message: Please, use me...');
+        }, 30000); // 30 seconds
+    </script>
+
+</body>
+</html>
