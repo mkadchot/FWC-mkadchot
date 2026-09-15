@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%; 
+    min-width: 300px; 
+}
+
+td {
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+    border: 2px solid black;
+    word-wrap: break-word;
+}
+
+.cell1 {
+    background-color: #b4dba2;
+}
+
+.cell2 {
+    background-color: #eaaa96;
+}
+
+@media (max-width: 600px) {
+    td {
+        font-size: 18px;
+        height: 80px;
+    }
+}
