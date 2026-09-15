@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* ตัวการ์ดหลัก */
+.card {
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* ส่วน Header */
+.card-header {
+  background-color: #047083;
+  color: rgb(253, 255, 219);
+  padding: 15px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Invisible Table (ไม่ใส่ border เพื่อให้เป็นตารางซ่อนเส้น) */
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 20px;
+  border: none;
+}
+
+.profile-table td {
+  padding: 8px 15px;
+  border: none;
+}
+
+/* ตกแต่งเนื้อหาภายใน */
+.profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.login-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.description {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.contact-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.contact-btn:hover {
+  background-color: #0056b3;
+}
