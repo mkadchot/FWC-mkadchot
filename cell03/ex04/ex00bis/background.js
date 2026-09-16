@@ -1,31 +1,9 @@
-// Function to generate a random number between 0 and 255
-function getRandomColorValue() {
-    return Math.floor(Math.random() * 256);
-}
-
-// Function to generate a random RGB color
-function getRandomColor() {
-    const r = getRandomColorValue();
-    const g = getRandomColorValue();
-    const b = getRandomColorValue();
-    return `rgb(${r}, ${g}, ${b})`;
-}
-
-// Function to generate a random number between 0 and 255
-function getRandomColorValue() {
-    return Math.floor(Math.random() * 256);
-}
-
-// Function to generate a random RGB color
-function getRandomColor() {
-    const r = getRandomColorValue();
-    const g = getRandomColorValue();
-    const b = getRandomColorValue();
-    return `rgb(${r}, ${g}, ${b})`;
-}
-
-// Select the button and add an event listener
-$("#change-bg-button").click(function() {
-    // Change the background color of the body to a random color
-    $("body").css("background-color", getRandomColor());
+$(document).ready(function() {
+    $('#change-bg-button').on('click', function() {
+        // สุ่มสี RGB
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        
+        // เปลี่ยนสีพื้นหลังของ body
+        $('body').css('background-color', randomColor);
+    });
 });
