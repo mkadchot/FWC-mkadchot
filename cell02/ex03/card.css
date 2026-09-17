@@ -8,7 +8,6 @@ body {
   margin: 0;
 }
 
-/* ตัวการ์ดหลัก */
 .card {
   width: 300px;
   background-color: #ffffff;
@@ -30,7 +29,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Invisible Table (ไม่ใส่ border เพื่อให้เป็นตารางซ่อนเส้น) */
 .profile-table {
   width: 100%;
   border-collapse: collapse;
@@ -43,7 +41,6 @@ body {
   border: none;
 }
 
-/* ตกแต่งเนื้อหาภายใน */
 .profile-img {
   width: 90px;
   height: 90px;
