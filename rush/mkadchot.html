@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mkadchot - Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation bar, fixed to top so it is always visible -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#about">mkadchot</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#showcase">Showcase</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="หน้าเว็บ.html">← Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- spacer so content doesn't hide behind the fixed navbar -->
+  <div style="margin-top: 80px;"></div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="container py-5">
+    <h2>About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-md-4 text-center mb-3">
+        <!-- TODO: replace this with your own photo -->
+        <img src="https://i.pinimg.com/236x/28/1c/a7/281ca7b38abd8b228e16a5ac36ef3f9f.jpg " class="img-fluid rounded-circle" alt="my photo">
+      </div>
+      <div class="col-md-8">
+        <!--ใส่ชื่อจริง -->
+        <h3>Mintra Kadchot</h3>
+        <!-- อธิบายตัวเอง -->
+        <p class="lead">    Nickname : Ploy   </p>
+        <p class="lead">    Age : 20 years old  </p>
+        <p class="lead">    Birth Date : 20 September 2005   </p>
+        <p class="lead">    Special Ability : gaming  </p>
+        <p class="lead">    Hobbies : watching anime  </p>
+        <p> นักศึกษาชั้นปีที่ 3 คณะบริหารธุรกิจ สาขาเศรษฐศาสตร์และการจัดการสถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง   </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE SECTION -->
+  <section id="showcase" class="container py-5">
+    <h2>Showcase</h2>
+    <p>Here are some of my skills / experiences:</p>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <!-- ความสามาร skills -->
+            <h5 class="card-title">Financial Analysis</h5>
+            <p class="card-text">Analyzing financial data to support business decisions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Economic Analysis</h5>
+            <p class="card-text">Analyzing economic factors and their impact on business decisions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Human Resources</h5>
+            <p class="card-text">Managing and developing human capital to achieve organizational goals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="container py-5">
+    <h2>Contact</h2>
+    <p>You can find me here:</p>
+    <ul class="list-group" style="max-width: 400px;">
+      <!-- แนบลิงก์ contract -->
+      <li class="list-group-item"><a href="https://github.com/mkadchot" target="_blank">GitHub</a></li>
+      <li class="list-group-item"><a href="https://www.instagram.com/_martinwoodz/" target="_blank">Instagram</a></li>
+    </ul>
+  </section>
+
+  <footer class="text-center py-3 bg-dark text-white">
+    <p class="mb-0">mkadchot - discovery_piscine/rush</p>
+  </footer>
+
+  <!-- Bootstrap JS (needed for the mobile menu button) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

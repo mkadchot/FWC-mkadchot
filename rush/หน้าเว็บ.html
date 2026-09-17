@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>RUSH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* พื้นหลังภาพเคลื่อนไหว */
+    body {
+      background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3Npc3FhZmdpdHpzZmhlNHNva3V2ZHo1dTJ1MXFmdWkzdXBjYXdpdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XIqCQx02E1U9W/giphy.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .content-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 30px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1 {
+      font-weight: bold;
+      color: #444;
+    }
+
+    p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .profile-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .profile-option img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      padding: 10px 25px;
+      font-size: 1rem;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary {
+      background-color: #ffbf00;
+      border: none;
+      color: white;
+    }
+
+    .btn-secondary {
+      background-color: #372dff;
+      border: none;
+      color: white;
+    }
+
+    @media (max-width: 576px) {
+      .d-flex {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="content-box text-center">
+    <h1 class="mb-3">Hello!</h1>
+    <p class="mb-4">Do you want to get to know us? Choose someone:</p>
+
+    <div class="d-flex justify-content-around flex-wrap">
+      <!-- Mintra -->
+      <div class="profile-option">
+        <img src="https://i.pinimg.com/236x/28/1c/a7/281ca7b38abd8b228e16a5ac36ef3f9f.jpg " alt="  ">
+        <a href="mkadchot.html" class="btn btn-primary mt-2">Mintra</a>
+      </div>
+
+      <!-- Chananchida -->
+      <div class="profile-option">
+        <img src="https://i.pinimg.com/736x/3e/ae/ab/3eaeab7a50c6da0c98d1ada85cd20b82.jpg " alt="   ">
+        <a href="crassame.html" class="btn btn-secondary mt-2">Chananchida</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
