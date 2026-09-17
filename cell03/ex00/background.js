@@ -2,7 +2,6 @@ function getRandomColorValue() {
     return Math.floor(Math.random() * 256);
 }
 
-// Function to generate a random RGB color
 function getRandomColor() {
     const r = getRandomColorValue();
     const g = getRandomColorValue();
